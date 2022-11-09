@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace BackPack_UI
 {
-    class Item
+    public class Item
     {
         public int weight;
         public int cost;
