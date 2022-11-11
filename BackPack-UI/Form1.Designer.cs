@@ -48,18 +48,19 @@
             // 
             this.H1.AutoSize = true;
             this.H1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.H1.Location = new System.Drawing.Point(195, -10);
+            this.H1.Location = new System.Drawing.Point(223, -13);
             this.H1.Name = "H1";
-            this.H1.Size = new System.Drawing.Size(447, 65);
+            this.H1.Size = new System.Drawing.Size(558, 81);
             this.H1.TabIndex = 0;
             this.H1.Text = "Задача о рюкзаке";
             // 
             // button_add
             // 
             this.button_add.BackColor = System.Drawing.Color.DarkSalmon;
-            this.button_add.Location = new System.Drawing.Point(12, 102);
+            this.button_add.Location = new System.Drawing.Point(14, 136);
+            this.button_add.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_add.Name = "button_add";
-            this.button_add.Size = new System.Drawing.Size(151, 38);
+            this.button_add.Size = new System.Drawing.Size(173, 51);
             this.button_add.TabIndex = 1;
             this.button_add.Text = "Добавить вещь";
             this.button_add.UseVisualStyleBackColor = false;
@@ -68,9 +69,10 @@
             // createBackpack_button
             // 
             this.createBackpack_button.BackColor = System.Drawing.Color.DarkSalmon;
-            this.createBackpack_button.Location = new System.Drawing.Point(436, 102);
+            this.createBackpack_button.Location = new System.Drawing.Point(498, 136);
+            this.createBackpack_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.createBackpack_button.Name = "createBackpack_button";
-            this.createBackpack_button.Size = new System.Drawing.Size(151, 38);
+            this.createBackpack_button.Size = new System.Drawing.Size(173, 51);
             this.createBackpack_button.TabIndex = 2;
             this.createBackpack_button.Text = "Создать рюкзак";
             this.createBackpack_button.UseVisualStyleBackColor = false;
@@ -80,29 +82,29 @@
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.LightSalmon;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 172);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 229);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(399, 157);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(11, 13, 11, 13);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(456, 209);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.Tag = "FWP_things";
             // 
             // label_itemCountDesc
             // 
             this.label_itemCountDesc.AutoSize = true;
-            this.label_itemCountDesc.Location = new System.Drawing.Point(12, 153);
+            this.label_itemCountDesc.Location = new System.Drawing.Point(14, 204);
             this.label_itemCountDesc.Name = "label_itemCountDesc";
-            this.label_itemCountDesc.Size = new System.Drawing.Size(117, 15);
+            this.label_itemCountDesc.Size = new System.Drawing.Size(146, 20);
             this.label_itemCountDesc.TabIndex = 4;
             this.label_itemCountDesc.Text = "Количество вещей: ";
             // 
             // label_itemCount
             // 
             this.label_itemCount.AutoSize = true;
-            this.label_itemCount.Location = new System.Drawing.Point(150, 154);
+            this.label_itemCount.Location = new System.Drawing.Point(171, 205);
             this.label_itemCount.Name = "label_itemCount";
-            this.label_itemCount.Size = new System.Drawing.Size(13, 15);
+            this.label_itemCount.Size = new System.Drawing.Size(17, 20);
             this.label_itemCount.TabIndex = 5;
             this.label_itemCount.Text = "0";
             // 
@@ -111,10 +113,10 @@
             this.button_solution.BackColor = System.Drawing.Color.OrangeRed;
             this.button_solution.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button_solution.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_solution.Location = new System.Drawing.Point(276, 360);
-            this.button_solution.Margin = new System.Windows.Forms.Padding(4);
+            this.button_solution.Location = new System.Drawing.Point(315, 480);
+            this.button_solution.Margin = new System.Windows.Forms.Padding(5);
             this.button_solution.Name = "button_solution";
-            this.button_solution.Size = new System.Drawing.Size(281, 38);
+            this.button_solution.Size = new System.Drawing.Size(321, 51);
             this.button_solution.TabIndex = 6;
             this.button_solution.Text = "Найти решение";
             this.button_solution.UseVisualStyleBackColor = false;
@@ -122,17 +124,18 @@
             // 
             // textBox_backpackCapacity
             // 
-            this.textBox_backpackCapacity.Location = new System.Drawing.Point(436, 171);
+            this.textBox_backpackCapacity.Location = new System.Drawing.Point(498, 228);
+            this.textBox_backpackCapacity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox_backpackCapacity.Name = "textBox_backpackCapacity";
-            this.textBox_backpackCapacity.Size = new System.Drawing.Size(151, 23);
+            this.textBox_backpackCapacity.Size = new System.Drawing.Size(172, 27);
             this.textBox_backpackCapacity.TabIndex = 7;
             // 
             // label_backpackCapacity
             // 
             this.label_backpackCapacity.AutoSize = true;
-            this.label_backpackCapacity.Location = new System.Drawing.Point(436, 153);
+            this.label_backpackCapacity.Location = new System.Drawing.Point(498, 204);
             this.label_backpackCapacity.Name = "label_backpackCapacity";
-            this.label_backpackCapacity.Size = new System.Drawing.Size(135, 15);
+            this.label_backpackCapacity.Size = new System.Drawing.Size(169, 20);
             this.label_backpackCapacity.TabIndex = 8;
             this.label_backpackCapacity.Text = "Вместимость рюкзака: ";
             // 
@@ -157,39 +160,41 @@
             // button_import
             // 
             this.button_import.BackColor = System.Drawing.Color.Orange;
-            this.button_import.Enabled = false;
-            this.button_import.Location = new System.Drawing.Point(650, 102);
+            this.button_import.Location = new System.Drawing.Point(743, 136);
+            this.button_import.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_import.Name = "button_import";
-            this.button_import.Size = new System.Drawing.Size(150, 38);
+            this.button_import.Size = new System.Drawing.Size(171, 51);
             this.button_import.TabIndex = 9;
             this.button_import.Text = "Импортировать значения";
             this.button_import.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_import.UseVisualStyleBackColor = false;
+            this.button_import.Click += new System.EventHandler(this.button_import_Click);
             // 
             // label_answer
             // 
             this.label_answer.AutoSize = true;
             this.label_answer.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_answer.Location = new System.Drawing.Point(42, 413);
+            this.label_answer.Location = new System.Drawing.Point(48, 551);
             this.label_answer.Name = "label_answer";
-            this.label_answer.Size = new System.Drawing.Size(95, 25);
+            this.label_answer.Size = new System.Drawing.Size(120, 32);
             this.label_answer.TabIndex = 10;
             this.label_answer.Text = "Решение:";
             // 
             // FLP_answer
             // 
             this.FLP_answer.AutoScroll = true;
-            this.FLP_answer.Location = new System.Drawing.Point(42, 455);
+            this.FLP_answer.Location = new System.Drawing.Point(48, 607);
+            this.FLP_answer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FLP_answer.Name = "FLP_answer";
-            this.FLP_answer.Size = new System.Drawing.Size(736, 198);
+            this.FLP_answer.Size = new System.Drawing.Size(841, 264);
             this.FLP_answer.TabIndex = 11;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(812, 593);
+            this.ClientSize = new System.Drawing.Size(926, 780);
             this.Controls.Add(this.FLP_answer);
             this.Controls.Add(this.label_answer);
             this.Controls.Add(this.button_import);
@@ -202,8 +207,9 @@
             this.Controls.Add(this.createBackpack_button);
             this.Controls.Add(this.button_add);
             this.Controls.Add(this.H1);
-            this.MaximumSize = new System.Drawing.Size(828, 632);
-            this.MinimumSize = new System.Drawing.Size(828, 632);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(944, 827);
+            this.MinimumSize = new System.Drawing.Size(944, 827);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
