@@ -59,6 +59,7 @@ namespace BackPack_UI
         private void button_solution_Click(object sender, EventArgs e)
         {
             string solution1 = Controller.getSimpleSolution();
+            string solution2 = Controller.getBranchSolution();
 
             Label thingLabel = new Label();
             thingLabel.AutoSize = true;
@@ -68,7 +69,7 @@ namespace BackPack_UI
             thingLabel.Name = "label_type";
             thingLabel.Padding = new System.Windows.Forms.Padding(5);
             thingLabel.Margin = new System.Windows.Forms.Padding(5);
-            thingLabel.Text = solution1;
+            thingLabel.Text = solution1 + solution2;
 
             FLP_answer.Controls.Add(thingLabel);
         }

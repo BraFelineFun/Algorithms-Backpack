@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace BackPack_UI
 {
-    class ItemList : IEnumerable<Item>
+    public class ItemList : IEnumerable<Item>
     {
         List<Item> items;
         public int Length
@@ -21,6 +21,18 @@ namespace BackPack_UI
         {
             this.items = items;
         }
+
+        public int GetWeight()
+        {
+            int res = 0;
+            foreach (Item obj in items)
+                res += obj.weight;
+            return res;
+        }
+        public Item GetElement(int i)
+        {
+            return this.items[i];
+        }
         public bool Add(Item item)
         {
             if (items.Contains(item))
@@ -36,6 +48,19 @@ namespace BackPack_UI
 
             items = items.Where(currentItem => item.id != currentItem.id).ToList();
             return true;
+        }
+
+        public void Sort()
+        {
+            for (int i = 0; i < this.items.Count - 1; i++)
+                for (int j = i + 1; j < this.items.Count - 1; j++)
+                    if (this.items[i].unitCost > this.items[j].unitCost)
+                    {
+                        Item temp = this.items[i];
+                        this.items[i] = this.items[j];
+                        this.items[j] = temp;
+                    }
+
         }
         public ItemList CopyItems()
         {

@@ -8,7 +8,7 @@ namespace BackPack_UI
         public int weight;
         public int cost;
         public long id;
-        double unitCost;
+        public double unitCost;
 
         public Item(int weight, int cost)
         {
@@ -17,6 +17,7 @@ namespace BackPack_UI
             this.cost = cost;
             unitCost = cost / weight;
         }
+
         override public string ToString()
         {
             return "id = " + id + ", weight = " + weight + ", cost = " + cost + ";";

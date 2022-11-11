@@ -10,6 +10,7 @@ namespace BackPack_UI
         public int currentCost;
         public ItemList containedItems;
 
+
         public BackPack(int capacity)
         {
             weightCapacity = capacity;
@@ -17,12 +18,17 @@ namespace BackPack_UI
             currentWeight = 0;
             currentCost = 0;
         }
-        BackPack(int weightCapacity, int currentWeight, int currentCost, ItemList containedItems)
+        public BackPack(int weightCapacity, int currentWeight, int currentCost, ItemList containedItems)
         {
             this.weightCapacity = weightCapacity;
             this.currentWeight = currentWeight;
             this.currentCost = currentCost;
             this.containedItems = containedItems.CopyItems();
+        }
+        
+        public int GetCapacity()
+        {
+            return weightCapacity;
         }
 
         public bool AddItem(Item item)

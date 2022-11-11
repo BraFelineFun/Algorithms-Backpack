@@ -37,5 +37,10 @@ namespace BackPack_UI
             string solution = "Simple solution: \n" + SimpleSolver.Solve(items, backPack).ToString();
             return solution;
         }
+        public static string getBranchSolution()
+        {
+            string solution = "\nBranch solution: \n" + BranchAndBound.Solve(items, backPack.GetCapacity()).ToString();
+            return solution;
+        }
     }
 }
