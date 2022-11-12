@@ -132,7 +132,7 @@ namespace BackPack_UI
             }
             else
             {
-                MessageBox.Show(this, "Не выбран файл", "Не выбран файл");
+                MessageBox.Show(this, "Не выбран файл", "Пожалуйста, выберете файл");
             }
         }
     }
