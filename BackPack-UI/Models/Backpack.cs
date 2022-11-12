@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BackPack_UI
 {
-    class BackPack
+    public class BackPack
     {
         int weightCapacity;
         int currentWeight;

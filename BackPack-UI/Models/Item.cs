@@ -20,7 +20,7 @@ namespace BackPack_UI
 
         override public string ToString()
         {
-            return "id = " + id + ", weight = " + weight + ", cost = " + cost + ";";
+            return "weight = " + weight + ", cost = " + cost + ";";
         }
     }
 }
