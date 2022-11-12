@@ -17,6 +17,8 @@ namespace BackPack_UI
         {
             InitializeComponent();
 
+            //Thread t = new Thread(() => GetSolutions());
+            //t.Start();
             GetSolutions();
         }
 
