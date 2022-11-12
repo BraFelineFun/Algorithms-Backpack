@@ -39,7 +39,7 @@ namespace BackPack_UI
             textBox_weight.Text = "";
             textBox_cost.Text = "";
 
-            Controller.AddItem(weight, cost);
+            Program.Form_main.controller.AddItem(weight, cost);
 
             Close();
         }

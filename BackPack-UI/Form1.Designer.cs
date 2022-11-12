@@ -79,11 +79,11 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.LightSalmon;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.SandyBrown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 172);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(399, 157);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.Tag = "FWP_things";
@@ -112,7 +112,7 @@
             this.button_solution.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button_solution.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button_solution.Location = new System.Drawing.Point(276, 360);
-            this.button_solution.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button_solution.Margin = new System.Windows.Forms.Padding(4);
             this.button_solution.Name = "button_solution";
             this.button_solution.Size = new System.Drawing.Size(281, 38);
             this.button_solution.TabIndex = 6;

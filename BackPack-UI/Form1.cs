@@ -5,11 +5,13 @@ namespace BackPack_UI
     public partial class Form1 : Form
     {
         Form_AddItem formAdd;
+        public Controller controller { get; private set; }
 
         public Form1()
         {
             formAdd = new Form_AddItem();
             InitializeComponent();
+            controller = new Controller(true);
         }
 
         private void AddThingLabel(string text)
@@ -48,12 +50,12 @@ namespace BackPack_UI
 
         private void createBackpack_button_Click(object sender, EventArgs e)
         {
-            Controller.CreateBackpack(textBox_backpackCapacity.Text);
+            controller.CreateBackpack(textBox_backpackCapacity.Text);
         }
 
         private void button_solution_Click(object sender, EventArgs e)
         {
-            if (!Controller.IsInitialized)
+            if (!controller.IsInitialized)
             {
                 MessageBox.Show("Пожалуйста, введите параметры рюкзака и вещей", "Ошибка", MessageBoxButtons.OK);
                 return;
@@ -63,9 +65,9 @@ namespace BackPack_UI
             btn.Enabled = false;
             
 
-            string solution1 = Controller.getSimpleSolution(true);
+            string solution1 = controller.GetSimpleSolution(true).ToString();
 
-            string solution2 = Controller.getBranchSolution(true);
+            string solution2 = controller.GetBranchSolution(true).ToString();
 
 
             Label thingLabel = new Label();
@@ -85,7 +87,7 @@ namespace BackPack_UI
 
         private void button_import_Click(object sender, EventArgs e)
         {
-            ImportParameters.Import();
+            ImportParameters.Import(controller);
         }
     }
 }

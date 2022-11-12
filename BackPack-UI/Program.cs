@@ -2,7 +2,12 @@ namespace BackPack_UI
 {
     public static class Program
     {
-        public static Form1 Form_main = new Form1();
+        public static ChooseAction ChooseAction = new ChooseAction();
+        public static Form1 Form_main 
+        {
+            get{ return ChooseAction.Form1; }
+        }
+       
 
         /// <summary>
         ///  The main entry point for the application.
@@ -13,20 +18,53 @@ namespace BackPack_UI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(Form_main);
+            Application.Run(ChooseAction);
         }
     }
 
-    public static class Controller
+    public class ReturnStructure
     {
-        static ItemList items = new ItemList();
-        static BackPack backPack;
-        public static bool IsInitialized { 
+        public string SolutionType;
+        public BackPack BackPack;
+        public string? Time;
+
+        public ReturnStructure(string SolutionType, BackPack BackPack, string Time = null)
+        {
+            this.SolutionType = SolutionType;
+            this.BackPack = BackPack;
+            this.Time = Time;
+        }
+
+        public string ToString()
+        {
+            string solution = "\n" + SolutionType + ": \n" + BackPack.ToString();
+            if (Time != null)
+                solution = Time + solution;
+
+            return solution;
+        }
+    }
+
+    public class Controller
+    {
+
+
+        ItemList items;
+        BackPack backPack;
+        bool isManual;
+
+        public bool IsInitialized { 
             get{ return backPack != null && items.Length > 0; } 
         }
 
+        public Controller(bool isManual)
+        {
+            this.isManual = isManual;
+            items = new ItemList();
+        }
 
-        public static void CreateBackpack(string capacity)
+
+        public void CreateBackpack(string capacity)
         {
             int intCapacity;
             try
@@ -40,37 +78,71 @@ namespace BackPack_UI
             }
 
             backPack = new BackPack(intCapacity);
-            Program.Form_main.AddBackPack(backPack);
+
+            if (isManual)
+                Program.Form_main.AddBackPack(backPack);
         }
-        public static void AddItem(int weight, int cost)
+        public void AddItem(int weight, int cost)
         {
             Item item = new Item(weight, cost);
             items.Add(new Item(weight, cost));
-            Program.Form_main.AddItem(item);
+
+            if (isManual)
+                Program.Form_main.AddItem(item);
         }
-        public static string getSimpleSolution(bool getEvaluationTime)
+        //public string GetSimpleSolution(bool getEvaluationTime)
+        //{
+        //    EvaluationTimer timer = new EvaluationTimer();
+        //    timer.StartCount();
+        //    string solution = "Simple solution: \n" + SimpleSolver.Solve(items, backPack).ToString();
+        //    string evaluationTime = timer.StopCount();
+
+        //    if (getEvaluationTime)
+        //        solution = evaluationTime + solution;
+
+        //    return solution;
+        //}
+        //public string GetBranchSolution(bool getEvaluationTime)
+        //{
+        //    EvaluationTimer timer = new EvaluationTimer();
+        //    timer.StartCount();
+        //    string solution = "\nBranch solution: \n" + BranchAndBound.Solve(items, backPack.GetCapacity()).ToString();
+
+        //    string evaluationTime = timer.StopCount();
+        //    if (getEvaluationTime)
+        //        solution = evaluationTime + solution;
+
+        //    return solution;
+        //}
+
+        public ReturnStructure GetSimpleSolution(bool getEvaluationTime)
         {
+            string SolutionType = "SimpleSolution";
             EvaluationTimer timer = new EvaluationTimer();
             timer.StartCount();
-            string solution = "Simple solution: \n" + SimpleSolver.Solve(items, backPack).ToString();
+            BackPack BackPack = SimpleSolver.Solve(items, backPack);
             string evaluationTime = timer.StopCount();
 
-            if (getEvaluationTime)
-                solution = evaluationTime + solution;
 
-            return solution;
+            ReturnStructure rs = new ReturnStructure(SolutionType, BackPack, evaluationTime);
+
+
+            return rs;
         }
-        public static string getBranchSolution(bool getEvaluationTime)
+        public ReturnStructure GetBranchSolution(bool getEvaluationTime)
         {
+            string SolutionType = "BranchSolution";
             EvaluationTimer timer = new EvaluationTimer();
             timer.StartCount();
-            string solution = "\nBranch solution: \n" + BranchAndBound.Solve(items, backPack.GetCapacity()).ToString();
-
+            BackPack BackPack = BranchAndBound.Solve(items, backPack.GetCapacity());
             string evaluationTime = timer.StopCount();
-            if (getEvaluationTime)
-                solution = evaluationTime + solution;
 
-            return solution;
+
+            ReturnStructure rs = new ReturnStructure(SolutionType, BackPack, evaluationTime);
+
+
+            return rs;
         }
     }
+
 }
