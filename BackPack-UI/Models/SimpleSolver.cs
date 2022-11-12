@@ -14,10 +14,11 @@ namespace BackPack_UI
             foreach (Item item in items)
             {
                 BackPack currBackpack = backPack.CopyBackPack();
-                ItemList currItems = items.CopyItems();
 
                 if (!currBackpack.AddItem(item))
                     continue;
+
+                ItemList currItems = items.CopyItems();
                 currItems.Remove(item);
 
                 if (bestPack.currentCost < currBackpack.currentCost)
