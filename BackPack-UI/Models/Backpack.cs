@@ -6,7 +6,7 @@ namespace BackPack_UI
     public class BackPack
     {
         int weightCapacity;
-        int currentWeight;
+        public int currentWeight;
         public int currentCost;
         public ItemList containedItems;
 

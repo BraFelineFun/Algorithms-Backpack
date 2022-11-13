@@ -32,7 +32,7 @@ namespace BackPack_UI
             ts.Hours, ts.Minutes, ts.Seconds,
             ts.Milliseconds);
 
-            return "\nВремя выполнения = " + elapsedTime + "\n";
+            return "Время выполнения = " + elapsedTime;
         }
     }
 }

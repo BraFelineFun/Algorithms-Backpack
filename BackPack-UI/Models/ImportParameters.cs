@@ -8,22 +8,25 @@ namespace BackPack_UI
 {
     internal class ImportParameters
     {
-        public static void Import()
+        public static string[]? ChooseFiles(bool isMultiple)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Файл исходник";
             openFileDialog.FileName = "";
             openFileDialog.Filter = "Text files (*.txt)|*.txt";
+            openFileDialog.Multiselect = isMultiple;
 
             if (openFileDialog.ShowDialog() != DialogResult.OK)
             {
-                MessageBox.Show("Не выбран файл", "Пожалуйста, выберете файл");
-                return;
+                MessageBox.Show("Не выбран ни один файл", "Пожалуйста, выберете файл");
+                return null;
             }
+            return openFileDialog.FileNames;
+        }
 
-
-            string sFileName = openFileDialog.FileName;
-            StreamReader file = new StreamReader(sFileName);
+        public static void ReadFile(Controller controller, string filename)
+        {
+            StreamReader file = new StreamReader(filename);
 
             string currentLine = file.ReadLine();
 
@@ -33,7 +36,7 @@ namespace BackPack_UI
                 return;
             }
 
-            Controller.CreateBackpack(currentLine);
+            controller.CreateBackpack(currentLine);
 
             while (!file.EndOfStream)
             {
@@ -43,9 +46,33 @@ namespace BackPack_UI
                 int weight = Convert.ToInt32(tempArray[0]);
                 int cost = Convert.ToInt32(tempArray[1]);
 
-                Controller.AddItem(weight, cost);
+                controller.AddItem(weight, cost);
             }
             file.Close();
+        }
+        
+        public static void WriteFile(Controller controller, string filename, int W, ItemList items)
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+            StreamWriter file = new StreamWriter(projectDirectory + "/source/" + filename);
+
+            file.WriteLine(W);
+
+            foreach(Item obj in items)
+            {
+                file.WriteLine(obj.weight + " " +obj.cost);
+            }
+            file.Close();
+        }
+
+        public static void Import(Controller controller)
+        {
+            var fn = ChooseFiles(false);
+            if (fn == null) return;
+            string sFileName = fn[0];
+
+            ReadFile(controller, sFileName);
         }
 
     }
