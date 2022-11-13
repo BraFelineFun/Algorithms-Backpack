@@ -16,19 +16,13 @@ namespace BackPack_UI
         public Autotests()
         {
             InitializeComponent();
-
-            //Thread t = new Thread(() => GetSolutions());
-            //t.Start();
-            //GetSolutions();
         }
 
         public void GetSolutions()
         {
-            /* var fileNames = ImportParameters.ChooseFiles(true);
-             if (fileNames == null) return;*/
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "/source/";
 
-            for (int i = 0;i< Convert.ToInt32(textBox_Tests.Text);i++)
+            for (int i = 0; i < Convert.ToInt32(textBox_Tests.Text); i++)
             {
                 string file = Convert.ToString(i) + ".txt";
                 Controller = new Controller(false);
@@ -48,9 +42,15 @@ namespace BackPack_UI
 
                 FLP_result.Controls.Add(solutionLabel);
             }
- //           foreach (var file in fileNames)
+        }
+
+        private void GetSolutionsFromFile()
+        {
+            var fileNames = ImportParameters.ChooseFiles(true);
+                if (fileNames == null) return;
+            foreach (var file in fileNames)
             {
-/*                Controller = new Controller(false);
+                Controller = new Controller(false);
                 ImportParameters.ReadFile(Controller, file);
 
                 ReturnStructure solution1 = Controller.GetSimpleSolution(true);
@@ -65,26 +65,35 @@ namespace BackPack_UI
                 solutionLabel.BackColor = SystemColors.ButtonFace;
                 solutionLabel.MinimumSize = new Size(400, 75);
 
-                FLP_result.Controls.Add(solutionLabel);*/
+                FLP_result.Controls.Add(solutionLabel);
             }
         }
 
         private void button_get_test_Click(object sender, EventArgs e)
         {
-            if(textBox_Vmax.Text != "" && textBox_Tests.Text != "" && textBox_capacity.Text != "")
+            bool isFilled = textBox_Vmax.Text != "" && textBox_Tests.Text != "" && textBox_capacity.Text != "";
+            if (!isFilled)
             {
-                for (int i = 0; i < Convert.ToInt32(textBox_Tests.Text); i++)
-                {
-                    ItemList itemList = new ItemList();
-                    for (int j = 0; j < Convert.ToInt32(textBox_Vmax.Text); j++)
-                    {
-                        (int, int) item = RandomItem.GetRItem(Convert.ToInt32(textBox_capacity.Text));
-                        itemList.Add(new Item(item.Item1, item.Item2));
-                    }
-                    ImportParameters.WriteFile(Controller, i.ToString() + ".txt",Convert.ToInt32(textBox_capacity.Text), itemList);
-                }
-                GetSolutions();
+                MessageBox.Show("Пожалуйста, заполните поля", "Пожалуйста, заполните поля", MessageBoxButtons.OK);
+                return;
             }
+
+            for (int i = 0; i < Convert.ToInt32(textBox_Tests.Text); i++)
+            {
+                ItemList itemList = new ItemList();
+                for (int j = 0; j < Convert.ToInt32(textBox_Vmax.Text); j++)
+                {
+                    (int, int) item = RandomItem.GetRItem(Convert.ToInt32(textBox_capacity.Text));
+                    itemList.Add(new Item(item.Item1, item.Item2));
+                }
+                ImportParameters.WriteFile(Controller, i.ToString() + ".txt", Convert.ToInt32(textBox_capacity.Text), itemList);
+            }
+            GetSolutions();
+        }
+
+        private void button_getFromFiles_Click(object sender, EventArgs e)
+        {
+            GetSolutionsFromFile();
         }
     }
 }
