@@ -50,6 +50,21 @@ namespace BackPack_UI
             }
             file.Close();
         }
+        
+        public static void WriteFile(Controller controller, string filename, int W, ItemList items)
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+
+            StreamWriter file = new StreamWriter(projectDirectory + "/source/" + filename);
+
+            file.WriteLine(W);
+
+            foreach(Item obj in items)
+            {
+                file.WriteLine(obj.weight + " " +obj.cost);
+            }
+            file.Close();
+        }
 
         public static void Import(Controller controller)
         {
