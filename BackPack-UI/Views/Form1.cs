@@ -67,7 +67,7 @@ namespace BackPack_UI
 
             string solution1 = controller.GetSimpleSolution(true).ToString();
 
-            string solution2 = controller.GetBranchSolution(true).ToString();
+           //string solution2 = controller.GetBranchSolution(true).ToString();
 
 
             Label thingLabel = new Label();
@@ -78,7 +78,7 @@ namespace BackPack_UI
             thingLabel.Name = "label_type";
             thingLabel.Padding = new System.Windows.Forms.Padding(5);
             thingLabel.Margin = new System.Windows.Forms.Padding(5);
-            thingLabel.Text = solution1 + solution2;
+            thingLabel.Text = solution1; //+*/ solution2;
 
             FLP_answer.Controls.Add(thingLabel);
 
