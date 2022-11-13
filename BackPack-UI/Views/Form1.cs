@@ -78,7 +78,11 @@ namespace BackPack_UI
             thingLabel.Name = "label_type";
             thingLabel.Padding = new System.Windows.Forms.Padding(5);
             thingLabel.Margin = new System.Windows.Forms.Padding(5);
-            thingLabel.Text = solution1 + solution2;
+            thingLabel.Text = solution1 + "\n=============================\n" + solution2;
+
+            if (FLP_answer.Controls.Count > 0)
+                FLP_answer.Controls.RemoveAt(0);
+
 
             FLP_answer.Controls.Add(thingLabel);
 
