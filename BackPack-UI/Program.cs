@@ -3,7 +3,7 @@ namespace BackPack_UI
     public static class Program
     {
         public static ChooseAction ChooseAction = new ChooseAction();
-        public static Form1 Form_main 
+        public static Form_Manual Form_main 
         {
             get{ return ChooseAction.Form1; }
         }

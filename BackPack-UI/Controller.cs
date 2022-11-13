@@ -10,20 +10,20 @@ namespace BackPack_UI
     {
         public string SolutionType;
         public BackPack BackPack;
-        public string? Time;
+        public EvaluationTimer Time;
 
-        public ReturnStructure(string SolutionType, BackPack BackPack, string Time = null)
+        public ReturnStructure(string SolutionType, BackPack BackPack, EvaluationTimer Time)
         {
             this.SolutionType = SolutionType;
             this.BackPack = BackPack;
             this.Time = Time;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             string solution = "\n" + SolutionType + ": \n" + BackPack.ToString();
             if (Time != null)
-                solution = Time + solution;
+                solution = Time.ToString() + solution;
 
             return solution;
         }
@@ -76,30 +76,6 @@ namespace BackPack_UI
             if (isManual)
                 Program.Form_main.AddItem(item);
         }
-        //public string GetSimpleSolution(bool getEvaluationTime)
-        //{
-        //    EvaluationTimer timer = new EvaluationTimer();
-        //    timer.StartCount();
-        //    string solution = "Simple solution: \n" + SimpleSolver.Solve(items, backPack).ToString();
-        //    string evaluationTime = timer.StopCount();
-
-        //    if (getEvaluationTime)
-        //        solution = evaluationTime + solution;
-
-        //    return solution;
-        //}
-        //public string GetBranchSolution(bool getEvaluationTime)
-        //{
-        //    EvaluationTimer timer = new EvaluationTimer();
-        //    timer.StartCount();
-        //    string solution = "\nBranch solution: \n" + BranchAndBound.Solve(items, backPack.GetCapacity()).ToString();
-
-        //    string evaluationTime = timer.StopCount();
-        //    if (getEvaluationTime)
-        //        solution = evaluationTime + solution;
-
-        //    return solution;
-        //}
 
         public ReturnStructure GetSimpleSolution(bool getEvaluationTime)
         {
@@ -107,10 +83,10 @@ namespace BackPack_UI
             EvaluationTimer timer = new EvaluationTimer();
             timer.StartCount();
             BackPack BackPack = SimpleSolver.Solve(items, backPack);
-            string evaluationTime = timer.StopCount();
+            timer.StopCount();
 
 
-            ReturnStructure rs = new ReturnStructure(SolutionType, BackPack, evaluationTime);
+            ReturnStructure rs = new ReturnStructure(SolutionType, BackPack, timer);
 
 
             return rs;
@@ -121,10 +97,10 @@ namespace BackPack_UI
             EvaluationTimer timer = new EvaluationTimer();
             timer.StartCount();
             BackPack BackPack = BranchAndBound.Solve(items, backPack.GetCapacity());
-            string evaluationTime = timer.StopCount();
+            timer.StopCount();
 
 
-            ReturnStructure rs = new ReturnStructure(SolutionType, BackPack, evaluationTime);
+            ReturnStructure rs = new ReturnStructure(SolutionType, BackPack, timer);
 
 
             return rs;
