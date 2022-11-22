@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace BackPack_UI
 {
-    internal class EvaluationTimer
+    public class EvaluationTimer
     {
         Stopwatch stopWatch;
+        public TimeSpan Time { get; set; }
+
 
         public EvaluationTimer()
         {
@@ -20,19 +22,24 @@ namespace BackPack_UI
         {
             stopWatch.Start();
         }
-        public string StopCount()
+        public void AddTime(TimeSpan t)
         {
-            TimeSpan ts;
-
+            Time += t;
+        }
+        public EvaluationTimer StopCount()
+        {
             stopWatch.Stop();
-            ts = stopWatch.Elapsed;
+            Time = stopWatch.Elapsed;
 
+            return this;
+        }
+        public override string ToString()
+        {
             // Format and display the TimeSpan value.
             string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds);
-
-            return "Время выполнения = " + elapsedTime;
+            Time.Hours, Time.Minutes, Time.Seconds,
+            Time.Milliseconds);
+            return elapsedTime;
         }
     }
 }

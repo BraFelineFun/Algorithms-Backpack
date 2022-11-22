@@ -2,12 +2,12 @@ using System.Diagnostics;
 
 namespace BackPack_UI
 {
-    public partial class Form1 : Form
+    public partial class Form_Manual : Form
     {
         Form_AddItem formAdd;
         public Controller controller { get; private set; }
 
-        public Form1()
+        public Form_Manual()
         {
             formAdd = new Form_AddItem();
             InitializeComponent();

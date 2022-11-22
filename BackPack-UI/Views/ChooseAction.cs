@@ -12,7 +12,7 @@ namespace BackPack_UI
 {
     public partial class ChooseAction : Form
     {
-        static public Form1 Form1 { get; private set; }
+        static public Form_Manual Form1 { get; private set; }
         static public Autotests Autotests { get; private set; }
         public ChooseAction()
         {
@@ -21,7 +21,7 @@ namespace BackPack_UI
 
         private void button_manual_Click(object sender, EventArgs e)
         {
-            Form1 = new Form1();
+            Form1 = new Form_Manual();
             Form1.ShowDialog(this);
         }
 

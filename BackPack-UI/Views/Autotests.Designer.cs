@@ -77,7 +77,7 @@
             // 
             this.textBox_Vmax.Location = new System.Drawing.Point(186, 90);
             this.textBox_Vmax.Name = "textBox_Vmax";
-            this.textBox_Vmax.Size = new System.Drawing.Size(151, 23);
+            this.textBox_Vmax.Size = new System.Drawing.Size(175, 23);
             this.textBox_Vmax.TabIndex = 8;
             // 
             // textBox_Tests

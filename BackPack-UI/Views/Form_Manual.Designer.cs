@@ -1,6 +1,6 @@
 ﻿namespace BackPack_UI
 {
-    partial class Form1
+    partial class Form_Manual
     {
         /// <summary>
         ///  Required designer variable.
